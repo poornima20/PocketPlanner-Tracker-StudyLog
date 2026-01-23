@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: #ffffff;              /* FULL WHITE PAGE */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: "Inter", sans-serif;
+  overflow: hidden;
+}
+
+/* MAIN PLANNER AREA (NO BOX) */
+.planner {
+  width: min(96vw, 1100px);
+  height: 100vh;
+  padding: 24px 20px 16px;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: clamp(18px, 2.4vw, 24px);
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+.month-nav {
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-size: 14px;
+  color: #444;
+}
+
+.month-nav button {
+  background: none;
+  border: none;
+  padding: 2px;
+  cursor: pointer;
+  color: #444;
+}
+
+.month-nav svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.5;
+}
+
+/* SCALE */
+.scale {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  align-items: end;
+  margin: 14px 0 6px;
+  position: relative;
+}
+
+/* horizontal guide under hours */
+.scale::after {
+  content: "";
+  position: absolute;
+  left: 42px;
+  right: 0;
+  bottom: -4px;
+  height: 1px;
+  background: #e6e6e6;
+}
+
+.hours {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #777;
+  padding-bottom: 4px;
+}
+
+/* TRACKER GRID */
+.tracker {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  row-gap: 6px;
+  position: relative;
+}
+
+/* vertical guide next to dates */
+.tracker::before {
+  content: "";
+  position: absolute;
+  left: 42px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: #e6e6e6;
+}
+
+/* DAY NUMBERS */
+.day {
+  text-align: right;
+  padding-right: 8px;
+  font-size: 11px;
+  color: #666;
+  line-height: 1;
+}
+
+/* BAR ROW — WHITE, NO BOX */
+.bar-row {
+  position: relative;
+  background: transparent;
+  cursor: ew-resize;
+}
+
+/* STUDY BAR (HIGHLIGHT ONLY) */
+.bar {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 90%;              /* 🔥 thicker highlight */
+  background: #f1d68a;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 6px;
+  font-size: 11px;
+  color: #333;
+  white-space: nowrap;
+}
+

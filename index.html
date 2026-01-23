@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Log</title>
+
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="planner">
+
+    <header class="header">
+      <h1>Study Log</h1>
+
+      <div class="month-nav">
+        <button id="prevMonth"><i data-lucide="chevron-left"></i></button>
+        <span id="monthLabel"></span>
+        <button id="nextMonth"><i data-lucide="chevron-right"></i></button>
+      </div>
+    </header>
+
+    <div class="scale">
+      <div class="scale-divider"></div>
+      <div class="hours">
+        <span>0</span>
+        <span>2</span>
+        <span>4</span>
+        <span>6</span>
+        <span>8 hrs</span>
+      </div>
+    </div>
+
+    <div class="tracker" id="tracker"></div>
+
+  </div>
+
+  <script src="script.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+
+</html>
