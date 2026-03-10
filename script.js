@@ -11,7 +11,7 @@ let current = new Date();
 function storageKey() {
   const y = current.getFullYear();
   const m = String(current.getMonth() + 1).padStart(2, "0");
-  return `study-tracker-${y}-${m}`;
+  return `fullmoon.pocketplanner.studylog.${y}-${m}`;
 }
 
 function loadData() {
