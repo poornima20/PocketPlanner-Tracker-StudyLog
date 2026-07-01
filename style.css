@@ -2,10 +2,14 @@
   box-sizing: border-box;
 }
 
+:root {
+    --date-column: 42px;
+}
+
 body {
   margin: 0;
   height: 100vh;
-  background: #ffffff;              /* FULL WHITE PAGE */
+  background: #ffffff; /* FULL WHITE PAGE */
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -15,33 +19,36 @@ body {
 
 /* MAIN PLANNER AREA (NO BOX) */
 .planner {
-  width: min(96vw, 1100px);
+  width: min(98vw, 1200px);
   height: 100vh;
-  padding: 24px 20px 16px;
+  padding: 8px 16px;
   display: grid;
+  margin:auto;
   grid-template-rows: auto auto 1fr;
 }
 
 /* HEADER */
 .header {
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  min-height: 36px;
 }
 
 .header h1 {
   margin: 0;
-  font-size: clamp(18px, 2.4vw, 24px);
+  padding-left: 36px;
+  font-size: clamp(18px, 2vw, 24px);
   font-weight: 600;
-  letter-spacing: 0.4px;
 }
 
 .month-nav {
-  margin-top: 6px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 14px;
-  font-size: 14px;
-  color: #444;
+  gap: 10px;
+  margin: 0;
 }
 
 .month-nav button {
@@ -61,9 +68,9 @@ body {
 /* SCALE */
 .scale {
   display: grid;
-  grid-template-columns: 42px 1fr;
+  grid-template-columns: var(--date-column) 1fr;
   align-items: end;
-  margin: 14px 0 6px;
+  margin: 6px 0 2px;
   position: relative;
 }
 
@@ -71,7 +78,7 @@ body {
 .scale::after {
   content: "";
   position: absolute;
-  left: 42px;
+  left: var(--date-column);
   right: 0;
   bottom: -4px;
   height: 1px;
@@ -89,18 +96,20 @@ body {
 /* TRACKER GRID */
 .tracker {
   display: grid;
-  grid-template-columns: 42px 1fr;
-  row-gap: 6px;
-  position: relative;
+  grid-template-columns: var(--date-column) 1fr;
+  grid-auto-rows: 1fr;
+  row-gap: 2px;
+  min-height: 0;
+  position: relative;   /* Add this */
 }
 
 /* vertical guide next to dates */
 .tracker::before {
   content: "";
   position: absolute;
-  left: 42px;
   top: 0;
   bottom: 0;
+  left: calc(var(--date-column) - 1px);
   width: 1px;
   background: #e6e6e6;
 }
@@ -108,8 +117,8 @@ body {
 /* DAY NUMBERS */
 .day {
   text-align: right;
-  padding-right: 8px;
-  font-size: 11px;
+  font-size: clamp(9px, 0.9vw, 11px);
+  padding-right: 6px;
   color: #666;
   line-height: 1;
 }
@@ -127,7 +136,7 @@ body {
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  height: 90%;              /* 🔥 thicker highlight */
+  height: 75%; /* 🔥 thicker highlight */
   background: #f1d68a;
   border-radius: 4px;
   display: flex;
@@ -139,3 +148,37 @@ body {
   white-space: nowrap;
 }
 
+
+@media (max-width:600px){
+
+    .planner{
+        width:100vw;
+        padding:6px 10px;
+    }
+
+    .header h1{
+        font-size:18px;
+    }
+
+    .month-nav{
+        gap:6px;
+        font-size:12px;
+    }
+
+    .day{
+        font-size:9px;
+    }
+
+    .hours{
+        font-size:9px;
+    }
+
+    .tracker{
+        row-gap:1px;
+    }
+
+    .bar{
+        height:70%;
+        font-size:9px;
+    }
+}
